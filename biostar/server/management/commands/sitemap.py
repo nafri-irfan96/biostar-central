@@ -5,7 +5,6 @@ import os
 from django.conf import settings
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sites.models import Site
-from biostar.apps.posts.models import Post
 from django.utils.encoding import smart_str
 from django.template import loader
 from django.core.management.base import BaseCommand, CommandError
@@ -35,6 +34,7 @@ def ping_google():
         pass
 
 def generate_sitemap():
+    from biostar.apps.posts.models import Post
     sitemap = GenericSitemap({
         'queryset': Post.objects.filter(type__in=Post.TOP_LEVEL).exclude(type=Post.BLOG),
     })
