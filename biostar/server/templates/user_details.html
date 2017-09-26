@@ -61,12 +61,9 @@
 
                     <dt>Status:</dt>
                     <dd>{{ target.get_status_display }}</dd>
-
-<<<<<<< HEAD
-                    {% if target.score > 0 %}
-=======
+                
                     {% if target.score > 0 or user.is_moderator %}
->>>>>>> master
+
                         <dt>Location:</dt>
                         <dd>{{ target.profile.location }}</dd>
 
